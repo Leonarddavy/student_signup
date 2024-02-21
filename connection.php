@@ -3,7 +3,7 @@
 $servername ="localhost";
 $username ="root";
 $password ="";
-$dbname="dwavikoech@gmail.com";
+$dbname="studentsignup";
 $port =3306;
 
 

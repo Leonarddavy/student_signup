@@ -16,20 +16,33 @@
             </div>
             <div class="row clearfix">
                 <div class="">
-                    <form>
+                    <form method="post" action="login.php">
                         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                            <input type="text" name="name" placeholder="Username" />
+                            <input type="text" id="username"   name="username" placeholder="Username" />
                         </div>
                         <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                            <input type="password" name="password" placeholder="Password" required />
+                            <input type="password" id="password1" name="password1" placeholder="Password" required />
                         </div>
+                    
 
                         <input class="button" type="submit" value="Login" />
+                        <p>Don't have an account? <a style="color: rgb(234, 234, 13);"  href="signup.html">Sign up</a></p>
+                        <p>Forgot your password? <a style="color: rgb(234, 234, 13); " href="forgot_password.html">Reset password</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const errorParam = urlParams.get('error');
+
+        // Display error message if the error parameter is present
+        if (errorParam === 'invalidcredentials') {
+            alert('Invalid credentials. Please try again.');
+
+        }
+    </script>
 
 </body>
 

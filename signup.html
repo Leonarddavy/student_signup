@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link rel="stylesheet" href="signup.css">
+    <script src="validate.js"></script>
+    
+    
 </head>
 
 <body>
@@ -16,29 +19,34 @@
             </div>
             <div class="row clearfix">
                 <div class="">
-                    <form action="signup.php">
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                            <input type="text" id="username" name="name" placeholder="Name" />
+                    <form action="signup.php" method="post" onsubmit="return validateAndAddAreaCode()">
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                            <input type="text" id="username" name="username" placeholder="Name" />
                         </div>
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
                             <input type="email" name="email" id="email" placeholder="Email" required />
                         </div>
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
                             <input type="password" name="password" id="password" placeholder="Password" required />
                         </div>
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                            <input type="password" name="password" id="cpassword" placeholder="Re-type Password"
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="cpassword" id="cpassword" placeholder="Re-type Password"
                                 required />
                         </div>
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
                             <input type="text" name="regnumber" id="regnumber" placeholder="Enter reg number"
+                                oninput="capitalizeRegistrationNumber(this)" required />
+                        </div>
+                        <div class="input_field">
+                            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="text" name="phonenumber" id="phonenumber" placeholder="Enter phone number"
                                 required />
                         </div>
-                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-                            <input type="number" name="phonenumber" id="phonenumber" placeholder="Enter phone number"
-                                required />
-                        </div>
-
 
                         <div class="input_field checkbox_option">
                             <input type="checkbox" id="cb1">
@@ -50,7 +58,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset password</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <div class="form_wrapper">
+        <div class="form_container">
+            <div class="title_container">
+                <h2>Login</h2>
+            </div>
+            <div class="row clearfix">
+                <div class="">
+                    <form action="newpassword.php" method="post" onsubmit="return validateForm()">
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="text" name="username" id="username" placeholder="Username" required />
+                        </div>
+
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="newpassword" id="newpassword" placeholder="New Password" required />
+                        </div>
+                        <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+                            <input type="password" name="confirmnewpassword" id="confirmnewpassword" placeholder="Confirm Password" required />
+                        </div>
+
+                        <input class="button" type="submit" value="Login" <a href="login.html" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        function validateForm() {
+            var password = document.getElementById("newpassword").value;
+            var confirmPassword = document.getElementById("confirmnewpassword").value;
+        
+            // Check if the password and confirm password match
+            if (password !== confirmPassword) {
+                alert("Password and Confirm Password do not match!");
+                return false;
+            }
+        
+            // Check if the password has at least 8 characters
+            if (password.length < 8) {
+                alert("Password should have at least 8 characters!");
+                return false;
+            }
+        
+            // Check if the password contains different characters
+            if (!hasDifferentCharacters(password)) {
+                alert("Password should contain different symbols and characters!");
+                return false;
+            }
+        
+            return true;
+        }
+        
+        // Helper function to check if a password contains different characters
+        function hasDifferentCharacters(password) {
+            // Use a Set to check for uniqueness of characters
+            var charSet = new Set(password);
+        
+            // If the size of the Set is equal to the length of the password, all characters are different
+            return charSet.size === password.length;
+        }
+
+    </script>
+
+</body>
+
+</html>
